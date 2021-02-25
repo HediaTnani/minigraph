@@ -21,7 +21,7 @@ jobs:
       run: |
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD 
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag hediatnani/Minigraph:${CI_COMMIT_SHA:0:7}
+      run: docker build . --file Dockerfile --tag hediatnani/Minigraph:$(date +%s)
       
     - name: Docker Push
       run: docker push hediatnani/Minigraph
