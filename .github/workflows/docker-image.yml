@@ -21,7 +21,7 @@ jobs:
       run: |
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD 
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag hediatnani/minigraph
+      run: docker build . --file Dockerfile --tag hediatnani/minigraph:${GITHUB_SHA:0:7}
       
     - name: Docker Push
-      run: docker push hediatnani/minigraph
+      run: docker push hediatnani/minigraph:${GITHUB_SHA:0:7}
